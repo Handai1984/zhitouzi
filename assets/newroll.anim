@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "newroll",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.4,
+  "sample": 15,
+  "speed": 1,
+  "wrapMode": "1",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "2e1549a1-26e3-41bd-9efa-3a3e624eb67e"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "61a43ea2-842c-40e1-903f-ce5a8657977f"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "8227c393-d374-49ce-8d9f-82bbeffb1496"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "7e8e1681-335f-4715-a05e-8ff40d5c0baa"
+            }
+          },
+          {
+            "frame": 0.26666666666666666,
+            "value": {
+              "__uuid__": "9ad4329d-7216-421c-a204-07e27258ab77"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "66d80fb6-7260-439f-9511-f4fe07a16f7a"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0.4,
+      "func": "Rndtouzi",
+      "params": []
+    }
+  ]
+}
