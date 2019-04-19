@@ -11,9 +11,9 @@ cc.Class({
     start() {
         this.pos_nodes = this.node.children;
         this.nums = [];
-        for(var i = 0; i < this.pos_nodes.length; i++) {
-            this.pos_nodes[i].scale = cc.p(1.8,1.8);
-            
+        for (var i = 0; i < this.pos_nodes.length; i++) {
+            this.pos_nodes[i].scale = cc.p(1.8, 1.8);
+
             cc.log('hahahha');
         }
 
@@ -39,8 +39,8 @@ cc.Class({
             var pos = cc.p(this.pos_nodes[count].x, this.pos_nodes[count].y);
             if (this.pos_nodes[count].active && ismove == false) {
                 var act1 = cc.moveTo(1, cc.p(pos.x, pos.y));
-                var act2 = cc.scaleTo(1,1.8);
-                var spaw = cc.spawn(act1,act2);
+                var act2 = cc.scaleTo(1, 1.8);
+                var spaw = cc.spawn(act1, act2);
                 var call = cc.callFunc(function () {
                     touzirnd.notouch(true);//移动的时候不可点击
                 }, this);
@@ -83,13 +83,13 @@ cc.Class({
                 nubers_two += this.nums[i];
             }
         }
-        
-        if(nubers_one == 10) {
+
+        if (nubers_one == 10) {
             //show result
             nubers_two = nubers_two % 10;
             this.gameover_node.active = true;
             this.cow_num_lab.string = nubers_two + '';
-        }else {
+        } else {
             //gameover
             this.gameover_node.active = true;
             this.cow_num_lab.node.active = false;
@@ -109,8 +109,13 @@ cc.Class({
     rndShowAD() {
         var rnd = cc.random0To1() * 1 + 1;
         rnd = Math.floor(rnd);
-        if(rnd == 1) {
-            jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity","showInter","()V");
+        if (rnd == 1) {
+            if (cc.sys.OS_ANDROID == cc.sys.os) {
+
+                jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "showInter", "()V");
+            } else if (cc.sys.OS_IOS == cc.sys.os) {
+                jsb.reflection.callStaticMethod("AppController", "game2NativeShow");//ios
+            }
         }
     }
 

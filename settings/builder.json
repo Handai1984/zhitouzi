@@ -7,9 +7,9 @@
   "includeAnySDK": false,
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": false,
+  "inlineSpriteFrames_native": true,
   "jailbreakPlatform": false,
-  "md5Cache": false,
+  "md5Cache": true,
   "mergeStartScene": false,
   "oauthLoginServer": "",
   "optimizeHotUpdate": false,
@@ -19,7 +19,7 @@
     "portrait": true,
     "upsideDown": false
   },
-  "packageName": "org.cocos2d.zhitouzi",
+  "packageName": "org.cocos2d.zhitouzi.huawei",
   "privateKey": "",
   "qqplay": {
     "REMOTE_SERVER_ROOT": "",
@@ -27,10 +27,10 @@
   },
   "renderMode": "0",
   "startScene": "1b1b8c4d-c606-4fef-8e5c-c0fbbc58d8a6",
-  "title": "zhitouzi",
+  "title": "Incredible",
   "webOrientation": "portrait",
   "wechatgame": {
-    "REMOTE_SERVER_ROOT": "",
+    "REMOTE_SERVER_ROOT": "http://localhost:3000/",
     "appid": "wx6ac3f5090a6b99c5",
     "isSubdomain": false,
     "orientation": "portrait",

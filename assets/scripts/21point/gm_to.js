@@ -100,7 +100,12 @@ cc.Class({
         var rnd = cc.random0To1() * 1 + 1;
         rnd = Math.floor(rnd);
         if(rnd == 1) {
-            jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity","showInter","()V");
+            if(cc.sys.OS_ANDROID == cc.sys.os) {
+
+                jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity","showInter","()V");
+            } else if(cc.sys.OS_IOS == cc.sys.os) {
+                jsb.reflection.callStaticMethod("AppController", "game2NativeShow");//ios
+            }
         }
     }
 

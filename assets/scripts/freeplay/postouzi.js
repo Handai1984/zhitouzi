@@ -3,22 +3,22 @@ cc.Class({
     properties: {
         num: 4,
         num_display: cc.Label,
-       // start_node: cc.Node,//打开骰子
+        // start_node: cc.Node,//打开骰子
         zhongshai_node: cc.Node,//骰盅
         dipan_node: cc.Node,//地盘
         restart_node: cc.Node,//重新开始
-       // shake_node: cc.Node,//摇骰子
+        // shake_node: cc.Node,//摇骰子
         numbers_node: cc.Node,//
         // score_lab: cc.Label,测试专用
         // x_lab: cc.Label,
         // y_lab: cc.Label,
         audio: cc.AudioSource,
-       
+
     },
     onLoad() {
 
         cc.inputManager.setAccelerometerEnabled(true);
-       this.onOpenEvent();
+        this.onOpenEvent();
     },
 
     start() {
@@ -35,7 +35,7 @@ cc.Class({
     testAudio() {
         this.audio.play();
     },
-    
+
 
     getNumNoRepeat() {//获得随机数
         var maxTimes = 20;
@@ -80,10 +80,10 @@ cc.Class({
     },
 
     openshaizi() {
-       this.zhongshai_node.active = false;
+        this.zhongshai_node.active = false;
         this.dipan_node.active = true;
         this.restart_node.active = true;
-       
+
         this.getshaizi();
     },
 
@@ -106,7 +106,7 @@ cc.Class({
         // this.dipan_node.active = false;
         // this.restart_node.active = false;
         cc.director.loadScene('freeplay');
-this.rndShowAD();
+        this.rndShowAD();
     },
 
 
@@ -123,14 +123,14 @@ this.rndShowAD();
         if (nowGX <= -2) {
             this.onDestroy();
             this.audio.play();
-           this.numbers_node.active = false;
+            this.numbers_node.active = false;
             //骰盅动画
-            var endcall = cc.callFunc(this.openshaizi,this);
-            var seq =cc.sequence( cc.repeat(
+            var endcall = cc.callFunc(this.openshaizi, this);
+            var seq = cc.sequence(cc.repeat(
                 cc.sequence(
                     cc.moveBy(0.01, 50, 0),
                     cc.moveBy(0.01, -50, 0)
-                ), 100),endcall);
+                ), 100), endcall);
             this.zhongshai_node.runAction(seq);
         }
 
@@ -148,15 +148,14 @@ this.rndShowAD();
     rndShowAD() {
         var rnd = cc.random0To1() * 1 + 1;
         rnd = Math.floor(rnd);
-        if(rnd == 1) {
-            jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity","showInter","()V");
+        if (rnd == 1) {
+            if(cc.sys.OS_ANDROID == cc.sys.os) {
+
+                jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity","showInter","()V");
+            } else if(cc.sys.OS_IOS == cc.sys.os) {
+                jsb.reflection.callStaticMethod("AppController", "game2NativeShow");//ios
+            }
         }
+        
     }
-
-
-
-
-
-
-
 })
